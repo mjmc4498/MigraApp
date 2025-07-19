@@ -2,15 +2,32 @@ class TaskController {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-        this.tasks = [];
+        this.tasks = [
+            new model(1, 'Diseñar la base de datos', 'pendiente', 1),
+            new model(2, 'Crear la API', 'en-progreso', 1),
+        ];
 
         this.addEventListeners();
         document.getElementById('save-task').addEventListener('click', this.handleFormSubmit.bind(this));
+        this.view.renderTasks(this.tasks);
     }
 
     addEventListeners() {
         document.getElementById('add-column-btn').addEventListener('click', this.addColumn.bind(this));
         this.view.addDragAndDropListeners(this.handleDrop.bind(this));
+        this.view.kanbanBoard.addEventListener('click', this.handleTaskActions.bind(this));
+    }
+
+    handleTaskActions(event) {
+        if (event.target.classList.contains('btn-danger')) {
+            const taskId = parseInt(event.target.getAttribute('data-id'));
+            this.deleteTask(taskId);
+        }
+    }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(t => t.id !== id);
+        this.view.renderTasks(this.tasks);
     }
 
     addColumn() {

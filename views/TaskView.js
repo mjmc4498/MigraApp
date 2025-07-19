@@ -42,6 +42,7 @@ class TaskView {
                 <div class="card-body">
                     <h6 class="card-title">${task.title}</h6>
                     <p class="card-text"><small>Prioridad: Alta</small></p>
+                    <button class="btn btn-sm btn-danger float-end" data-id="${task.id}">X</button>
                 </div>
             `;
 
