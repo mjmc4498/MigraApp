@@ -40,6 +40,12 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs-content" type="button" role="tab">Documentación</button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reports-tab" data-bs-toggle="tab" data-bs-target="#reports-content" type="button" role="tab">Reportes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-content" type="button" role="tab">Configuración</button>
+            </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -213,7 +219,71 @@
             </div>
             <div class="tab-pane fade" id="docs-content" role="tabpanel">
                 <h3>Documentación y Evidencias</h3>
-                <p>Módulo en construcción.</p>
+                <form id="doc-form">
+                    <div class="mb-3">
+                        <label for="doc-name" class="form-label">Nombre del Documento</label>
+                        <input type="text" class="form-control" id="doc-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="doc-file" class="form-label">Archivo</label>
+                        <input type="file" class="form-control" id="doc-file" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subir Documento</button>
+                </form>
+                <hr>
+                <h4>Documentos del Proyecto</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doc-list"></tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="reports-content" role="tabpanel">
+                <h3>Indicadores y Reportes</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Avance General</h4>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-secondary">Exportar a PDF</button>
+                <button class="btn btn-secondary">Exportar a Excel</button>
+            </div>
+            <div class="tab-pane fade" id="settings-content" role="tabpanel">
+                <h3>Configuración y Seguridad</h3>
+                <form id="user-form">
+                    <div class="mb-3">
+                        <label for="user-name" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="user-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-role" class="form-label">Rol</label>
+                        <select class="form-select" id="user-role" required>
+                            <option value="admin">Administrador</option>
+                            <option value="user">Usuario</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Añadir Usuario</button>
+                </form>
+                <hr>
+                <h4>Usuarios</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-list"></tbody>
+                </table>
             </div>
         </div>
     </main>
