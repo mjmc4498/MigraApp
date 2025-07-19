@@ -22,3 +22,11 @@ body {
     background-color: #dc3545; /* Rojo */
     color: white;
 }
+
+.kanban-column {
+    min-height: 200px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
