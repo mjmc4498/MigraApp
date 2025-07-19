@@ -2,3 +2,23 @@
 body {
     font-family: sans-serif;
 }
+
+.status-pendiente {
+    background-color: #6c757d; /* Gris */
+    color: white;
+}
+
+.status-en-progreso {
+    background-color: #0d6efd; /* Azul */
+    color: white;
+}
+
+.status-completado {
+    background-color: #198754; /* Verde */
+    color: white;
+}
+
+.status-bloqueado {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
