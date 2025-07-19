@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectController = new ProjectController(Project, projectView);
     const dashboardView = new DashboardView();
     const dashboardController = new DashboardController(projectController.projects, dashboardView);
+    const stageView = new StageView();
+    const stageController = new StageController(Stage, stageView);
+    const taskView = new TaskView();
+    const taskController = new TaskController(Task, taskView);
+    const riskView = new RiskView();
+    const riskController = new RiskController(Risk, riskView);
 
     // Conectar controladores para que el dashboard pueda actualizar la lista de proyectos
     projectController.addProjectCallback = () => dashboardController.updateDashboard();
