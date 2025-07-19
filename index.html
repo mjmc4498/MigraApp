@@ -196,7 +196,9 @@
             </div>
             <div class="tab-pane fade" id="tasks-content" role="tabpanel">
                 <h3>Gestión de Tareas (Kanban)</h3>
-                <div class="row">
+                <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#task-modal">Añadir Tarea</button>
+                <button class="btn btn-secondary mb-3" id="add-column-btn">Añadir Hito</button>
+                <div class="row" id="kanban-board">
                     <div class="col">
                         <h4>Pendiente</h4>
                         <div class="kanban-column" id="task-pending"></div>
@@ -312,6 +314,30 @@
 
     <!-- Modal para Edición -->
     <div class="modal fade" id="edit-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="task-form">
+                        <div class="mb-3">
+                            <label for="task-title" class="form-label">Título de la Tarea</label>
+                            <input type="text" class="form-control" id="task-title" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="save-task">Guardar Tarea</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Tareas -->
+    <div class="modal fade" id="task-modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
