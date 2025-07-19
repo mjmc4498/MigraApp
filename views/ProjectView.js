@@ -18,6 +18,10 @@ class ProjectView {
                 <td>${project.owner}</td>
                 <td>${project.priority}</td>
                 <td><span class="badge ${statusClass}">${project.status}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-warning" data-id="${project.id}">Editar</button>
+                    <button class="btn btn-sm btn-danger" data-id="${project.id}">Eliminar</button>
+                </td>
             `;
             this.projectList.appendChild(projectRow);
         });

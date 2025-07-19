@@ -6,6 +6,22 @@ class ProjectController {
 
         this.projectForm = document.getElementById('project-form');
         this.projectForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+        this.view.projectList.addEventListener('click', this.handleProjectActions.bind(this));
+    }
+
+    handleProjectActions(event) {
+        if (event.target.classList.contains('btn-danger')) {
+            const projectId = parseInt(event.target.getAttribute('data-id'));
+            this.deleteProject(projectId);
+        }
+    }
+
+    deleteProject(id) {
+        this.projects = this.projects.filter(project => project.id !== id);
+        this.view.renderProjects(this.projects);
+        if (this.deleteProjectCallback) {
+            this.deleteProjectCallback();
+        }
     }
 
     handleFormSubmit(event) {
@@ -35,10 +51,20 @@ class ProjectController {
         this.projects.push(newProject);
         this.view.renderProjects(this.projects);
         this.projectForm.reset();
+
+        if (this.addProjectCallback) {
+            this.addProjectCallback();
+        }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const projectView = new ProjectView();
     const projectController = new ProjectController(Project, projectView);
+    const dashboardView = new DashboardView();
+    const dashboardController = new DashboardController(projectController.projects, dashboardView);
+
+    // Conectar controladores para que el dashboard pueda actualizar la lista de proyectos
+    projectController.addProjectCallback = () => dashboardController.updateDashboard();
+    projectController.deleteProjectCallback = () => dashboardController.updateDashboard();
 });
