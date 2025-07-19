@@ -19,6 +19,10 @@ class RiskView {
                 <td>${risk.probability}</td>
                 <td>${risk.impact}</td>
                 <td class="${severityClass}">${severity}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning" data-id="${risk.id}">Editar</button>
+                    <button class="btn btn-sm btn-danger" data-id="${risk.id}">Eliminar</button>
+                </td>
             `;
             this.riskMatrix.appendChild(riskRow);
         });

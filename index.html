@@ -215,6 +215,47 @@
             </div>
             <div class="tab-pane fade" id="risks-content" role="tabpanel">
                 <h3>Matriz de Riesgos</h3>
+                <form id="risk-form">
+                    <div class="mb-3">
+                        <label for="risk-description" class="form-label">Descripción del Riesgo</label>
+                        <input type="text" class="form-control" id="risk-description" required>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="risk-probability" class="form-label">Probabilidad</label>
+                            <select id="risk-probability" class="form-select">
+                                <option value="baja">Baja</option>
+                                <option value="media">Media</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="risk-impact" class="form-label">Impacto</label>
+                            <select id="risk-impact" class="form-select">
+                                <option value="bajo">Bajo</option>
+                                <option value="medio">Medio</option>
+                                <option value="alto">Alto</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="risk-mitigation" class="form-label">Plan de Mitigación</label>
+                        <textarea class="form-control" id="risk-mitigation" rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Añadir Riesgo</button>
+                </form>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="risk-filter-severity" class="form-label">Filtrar por Severidad</label>
+                        <select id="risk-filter-severity" class="form-select">
+                            <option value="all">Todas</option>
+                            <option value="alta">Alta</option>
+                            <option value="media">Media</option>
+                            <option value="baja">Baja</option>
+                        </select>
+                    </div>
+                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -222,6 +263,7 @@
                             <th>Probabilidad</th>
                             <th>Impacto</th>
                             <th>Severidad</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="risk-matrix">

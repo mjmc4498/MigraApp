@@ -4,7 +4,17 @@ class RiskController {
         this.view = view;
         this.risks = [];
 
-        // Aquí se añadiría un formulario para crear riesgos
+        this.riskForm = document.getElementById('risk-form');
+        this.riskForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+    }
+
+    handleFormSubmit(event) {
+        event.preventDefault();
+        const description = document.getElementById('risk-description').value;
+        const probability = document.getElementById('risk-probability').value;
+        const impact = document.getElementById('risk-impact').value;
+        this.addRisk(description, probability, impact);
+        this.riskForm.reset();
     }
 
     addRisk(description, probability, impact) {

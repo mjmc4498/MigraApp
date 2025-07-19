@@ -1,9 +1,13 @@
 class Risk {
-    constructor(id, description, probability, impact) {
+    constructor(id, description, probability, impact, mitigationPlan, status, projectId, stageId) {
         this.id = id;
         this.description = description;
         this.probability = probability; // baja, media, alta
         this.impact = impact; // bajo, medio, alto
+        this.mitigationPlan = mitigationPlan;
+        this.status = status;
+        this.projectId = projectId;
+        this.stageId = stageId;
     }
 
     get severity() {
